@@ -16,7 +16,7 @@ class Solution {
     inline static const array<string, 3> topThreeRanks{ "Gold Medal", "Silver Medal", "Bronze Medal"};
 
 public:
-    vector<string> findRelativeRanks(const vector<int>& scores)const {
+    vector<string> findRelativeRanks(const vector<int>& scores) const {
         static const auto comparator = [](const auto& first, const auto& second) {return first.score < second.score;};
         priority_queue<ScoreAndIndex, vector<ScoreAndIndex>, decltype(comparator) > maxHeap(comparator);
         for (size_t i = 0; i < scores.size(); ++i) {
