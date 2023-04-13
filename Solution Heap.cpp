@@ -13,12 +13,12 @@ class Solution {
         size_t index;
         ScoreAndIndex(int score, size_t index): score{score}, index{index}{};
     };
-    inline static const array<string, 3> topThreeRanks{ "Gold Medal", "Silver Medal", "Bronze Medal"};
+    inline static const array<string, 3> topThreeRanks {"Gold Medal", "Silver Medal", "Bronze Medal"};
 
 public:
     vector<string> findRelativeRanks(const vector<int>& scores) const {
         static const auto comparator = [](const auto& first, const auto& second) {return first.score < second.score;};
-        priority_queue<ScoreAndIndex, vector<ScoreAndIndex>, decltype(comparator) > maxHeap(comparator);
+        priority_queue<ScoreAndIndex, vector<ScoreAndIndex>, decltype(comparator)> maxHeap(comparator);
         for (size_t i = 0; i < scores.size(); ++i) {
             maxHeap.push(ScoreAndIndex(scores[i], i));
         }
